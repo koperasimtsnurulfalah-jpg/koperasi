@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <title>Koperasi NF</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  <!-- Konfigurasi PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a5276">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dp8rda8g4/image/upload/v1782645149/MTs%20Nurul%20Falah/Logo_Koperasi_kgrf9b.png">
+  
+  <link rel="icon" href="https://res.cloudinary.com/dp8rda8g4/image/upload/v1782645149/MTs%20Nurul%20Falah/Logo_Koperasi_kgrf9b.png">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+      height: 100vh;
+      width: 100vw;
+    }
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbyjAK8rAZPrUANiMDbp_tGgd0G5HR1i1VkjjqxkWZeMaP3zBb0ovezO1hEzLSotf46A/exec"
+    allowfullscreen="true"
+    allow="fullscreen"
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-downloads allow-fullscreen allow-popups-to-escape-sandbox allow-top-navigation"
+    loading="lazy">
+    <p>Browser Anda tidak mendukung iframe. Silakan buka tautan berikut: 
+       <a href="https://script.google.com/macros/s/AKfycbyjAK8rAZPrUANiMDbp_tGgd0G5HR1i1VkjjqxkWZeMaP3zBb0ovezO1hEzLSotf46A/exec" target="_blank">Koperasi NF</a>
+    </p>
+  </iframe>
+
+  <!-- Script untuk mendaftarkan Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('Service Worker berhasil didaftarkan dengan scope:', registration.scope);
+          })
+          .catch(error => {
+            console.error('Pendaftaran Service Worker gagal:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
