@@ -1,0 +1,21 @@
+{
+  "name": "Koperasi Nurul Falah",
+  "short_name": "Koperasi NF",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a5276",
+  "description": "Aplikasi Koperasi Nurul Falah",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dp8rda8g4/image/upload/v1782645149/MTs%20Nurul%20Falah/Logo_Koperasi_kgrf9b.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dp8rda8g4/image/upload/v1782645149/MTs%20Nurul%20Falah/Logo_Koperasi_kgrf9b.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
