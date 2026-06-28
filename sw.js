@@ -1,0 +1,45 @@
+const CACHE_NAME = 'koperasi-nf-v.2';
+const urlsToCache = [
+  './',
+  './index.html',
+  './manifest.json'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  // PENTING: Hanya tangani request yang berasal dari domain website kita sendiri.
+  // Biarkan request ke script.google.com berjalan normal tanpa campur tangan Service Worker.
+  if (!event.request.url.startsWith(self.location.origin)) {
+    return; 
+  }
+
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
+      })
+  );
+});
+
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
